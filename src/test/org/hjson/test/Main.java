@@ -129,6 +129,8 @@ public class Main {
 
     out.println("running tests...");
 
+    TestFunctions.Exec();
+
     for (String file : testNames) {
       int extIdx=file.lastIndexOf('.');
       String name=file.substring(0, extIdx);

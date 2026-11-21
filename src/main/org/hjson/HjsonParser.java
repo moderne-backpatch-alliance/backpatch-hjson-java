@@ -233,7 +233,7 @@ class HjsonParser {
         triple++;
         read();
         if (triple==3) {
-          if (sb.charAt(sb.length()-1)=='\n') sb.deleteCharAt(sb.length()-1);
+          if (sb.length() > 0 && sb.charAt(sb.length()-1)=='\n') sb.deleteCharAt(sb.length()-1);
 
           return new JsonString(sb.toString());
         }
