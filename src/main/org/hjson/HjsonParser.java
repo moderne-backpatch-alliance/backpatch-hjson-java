@@ -104,9 +104,6 @@ class HjsonParser {
   }
 
   private JsonValue readValue(int depth) throws IOException, ParseException {
-    if(current==123) {
-      ++depth;
-    }
        /* The following has been refrenced for the resolution of the vulnerability:
     https://github.com/FasterXML/jackson-databind/commit/fcfc4998ec23f0b1f7f8a9521c2b317b6c25892b
     */
@@ -115,8 +112,8 @@ class HjsonParser {
     }
     switch(current) {
       case '"': return readString();
-      case '[': return readArray(depth);
-      case '{': return readObject(false, depth);
+      case '[': return readArray(depth + 1);
+      case '{': return readObject(false, depth + 1);
       default: return readTfnns();
     }
 
